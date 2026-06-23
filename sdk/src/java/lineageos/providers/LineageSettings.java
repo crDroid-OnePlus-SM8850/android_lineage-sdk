@@ -885,15 +885,15 @@ public final class LineageSettings {
         public static final Validator NOTIFICATION_PLAY_QUEUE_VALIDATOR = sBooleanValidator;
 
         /**
-         * Whether the HighTouchPollingRate is activated or not.
-         * 0 = off, 1 = on
+         * Touch polling rate mode.
+         * 0 = 120Hz, 1 = legacy on, 3 = 240Hz, 4 = 180Hz, 14 = 330Hz
          */
         public static final String HIGH_TOUCH_POLLING_RATE_ENABLE =
                 "high_touch_polling_rate_enable";
 
         /** @hide */
         public static final Validator HIGH_TOUCH_POLLING_RATE_ENABLE_VALIDATOR =
-                sBooleanValidator;
+                new DiscreteValueValidator(new String[] {"0", "1", "3", "4", "14"});
 
         /**
          * Whether the HighTouchSensitivity is activated or not.
